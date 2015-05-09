@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 곳에서 사용할 해당 맵퍼의 이름 -->
+<mapper namespace="com.shuim.service.MemberMapper">
+
+	<insert id="addMember" parameterType="com.shuim.domain.MemberVO">
+	<![CDATA[ 
+		INSERT INTO member (email, passwd, user_name, phone, mobile)
+		VALUES(#{email},#{passwd},#{user_name},#{phone},#{mobile})
+	]]>
+	</insert>
+	
+ </mapper>

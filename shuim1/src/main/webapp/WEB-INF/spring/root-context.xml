@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context.xsd
+     ">
+
+	<!-- 프로젝트의 모든 컴퍼넌트들을 인식 -->
+	<context:component-scan base-package="com.shuim..." use-default-filters="false">
+	<context:include-filter expression="org.springframework.stereotype.Service" type="annotation" />
+	<context:include-filter expression="org.springframework.stereotype.Repository" type="annotation" />
+	</context:component-scan>
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- DB설정 정보들을 추가 -->
+	<import resource="classpath:config/spring/context/context-datasource.xml"/>
+	<!-- SQL 관련 맵퍼들의 정보들을 추가 -->
+	<import resource="classpath:config/spring/context/context-mybatis.xml" />
+</beans>
